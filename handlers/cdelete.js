@@ -1,5 +1,5 @@
 const fs = require('fs');
-exports.cdelete= function (article, payload, cb) {
+exports.cdelete= function (req,res,article, payload, cb) {
     for(let i=0;i<article.length;i++){
         if(article[i].id === payload.articleId){
             for(let j = 0;j<article[i].comments.length;j++){

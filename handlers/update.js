@@ -1,5 +1,5 @@
 const fs = require('fs');
-exports.update = function (article, payload, cb) {
+exports.update = function (req,res,article, payload, cb) {
     let result;
     for(let i=0;i<article.length;i++){
         if(article[i].id===payload.id)
@@ -13,4 +13,4 @@ exports.update = function (article, payload, cb) {
         }
     }
     cb(null, result);
-}
+};

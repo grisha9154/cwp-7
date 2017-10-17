@@ -1,4 +1,4 @@
-exports.read = function (article, payload, cb) {
+exports.read = function (req,res,article, payload, cb) {
     let result;
     for(let i=0;i<article.length;i++){
         if(article[i].id===payload.id)

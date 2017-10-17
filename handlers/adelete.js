@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-exports.adelete=function (article, payload, cb) {
+exports.adelete=function (req,res,article, payload, cb) {
     for(let i=0;i<article.length;i++){
         if(article[i].id===payload.id)
         {

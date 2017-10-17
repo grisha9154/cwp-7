@@ -8,9 +8,14 @@ const adelete = require('../handlers/adelete.js');
 const ccreate = require('../handlers/ccreate.js');
 const cdelete = require('../handlers/cdelete.js');
 const logHandl = require('../handlers/logHandle.js');
+const defualt = require('../handlers/defualt.js');
+const form = require('../public/form.js');
+const showINdex = require('../handlers/ShowIndex.js');
+const formjs = require('../handlers/formjs.js');
+const site = require('../handlers/site.js');
 
 const hostname = '127.0.0.1';
-const port = 3000;
+const port =3000;
 
 const handlers = {
     '/api/articles/readall':readall.readall,
@@ -20,12 +25,17 @@ const handlers = {
     '/api/articles/delete':adelete.adelete,
     '/api/comments/create':ccreate.ccreate,
     '/api/comments/delete':cdelete.cdelete,
-    '/api/logs':logHandl.log
+    '/api/logs':logHandl.log,
+    '/':defualt.defualt,
+    '/index.html':defualt.defualt,
+    '/form.html':form.form,
+    '/app.js':showINdex.index,
+    '/form.js':formjs.formjs,
+    '/site.css':site.site
 };
 
 let article;
 fs.readFile("E:\\Univer\\5 семестр\\ПСКП\\PSKP\\Лабы\\lab6\\cwp-6\\articles.json", "utf-8", function (err, copy) {
-
         article = JSON.parse(copy);
         const server = http.createServer((req, res) => {
             parseBodyJson(req, (err, payload) => {
@@ -44,7 +54,7 @@ fs.readFile("E:\\Univer\\5 семестр\\ПСКП\\PSKP\\Лабы\\lab6\\cwp-6
 
                 log(req.url,payload,()=>{});
 
-                handler(article, payload, (err, result) => {
+                handler(req,res,article, payload, (err, result) => {
                     if (err) {
                         res.statusCode = err.code;
                         res.setHeader('Content-Type', 'application/json');

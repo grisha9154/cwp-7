@@ -1,4 +1,4 @@
- exports.readall = function (article, payload, cb) {
+ exports.readall = function (req,res,article, payload, cb) {
     let result;
     let lastResalt = {"items":[],"meta":{"page":0,"pages":0,"count":0,"limit":10}};
     result = sort(payload,article);

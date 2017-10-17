@@ -1,5 +1,5 @@
 const fs = require('fs');
-exports.acreate = function (article, payload, cb) {
+exports.acreate = function (req,res,article, payload, cb) {
     let result;
     result =JSON.stringify(payload);
     let buf = result.substring(1);
