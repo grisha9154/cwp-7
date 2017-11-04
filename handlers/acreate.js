@@ -11,7 +11,7 @@ exports.acreate = function (req,res,article, payload, cb) {
     result = JSON.parse(result);
     article[article.length]=result;
     setTimeout(function () {
-        const write = fs.createWriteStream("E:\\Univer\\5 семестр\\ПСКП\\PSKP\\Лабы\\lab5\\cwp-5\\task03\\articles.json");
+        const write = fs.createWriteStream("E:\\Univer\\5 семестр\\ПСКП\\PSKP\\Лабы\\lab7\\cwp-7\\articles.json");
         write.write(JSON.stringify(article));
     });
     cb(null, result);

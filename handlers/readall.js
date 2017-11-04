@@ -2,7 +2,7 @@
     let result;
     let lastResalt = {"items":[],"meta":{"page":0,"pages":0,"count":0,"limit":10}};
     result = sort(payload,article);
-    if(payload.limit!=undefined) {
+    if(payload.limit!==undefined) {
         lastResalt.meta.limit = payload.limit;
         if(payload.page!=undefined) {
             result = split(article, payload.page, payload.limit);
@@ -14,12 +14,15 @@
         result = split(article,0,10);
     }
     let buf = [];
-    for(let i=0;result[i]!=undefined;i++){
+    for(let i=0;result[i]!==undefined;i++){
         buf[i]=result[i];
     }
     result = buf;
-    if((!payload.includeDeps)||payload.includeDeps===undefined)
-       result=getOnlyArt(result);
+     if(payload.includeDeps!==undefined)
+     {
+        if(!payload.includeDeps)
+        result=getOnlyArt(result);
+     }
 
     lastResalt.meta.count = article.length;
     lastResalt.meta.pages = getPages(article.length,lastResalt.meta.limit);
@@ -180,6 +183,29 @@ function sDesc(i,ii) {
      }
  }
  function sDescText(i,ii) {
+     if(i.text<ii.text){
+         return 1;
+     }else{
+         if(i.text>ii.text){
+             return -1;
+         }else{
+             return 0;
+         }
+     }
+ }
+
+ function sIncTitle(i,ii) {
+     if(i.title>ii.title){
+         return 1;
+     }else{
+         if(i.title<ii.title){
+             return -1;
+         }else{
+             return 0;
+         }
+     }
+ }
+ function sDescTitle(i,ii) {
      if(i.title<ii.title){
          return 1;
      }else{

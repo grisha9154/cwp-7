@@ -1,11 +1,31 @@
-<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <title>cwp-07</title>
+    <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <link rel="stylesheet" href="./site.css">
+    <script src="./app.js"></script>
 </head>
 <body>
+<div id = "articles"></div>
 
-<h1>Привет Артур</h1>
+    <p><select id="select0" name="sortField">
+        <option disabled>Тип сортировки</option>
+        <option value="date">date</option>
+        <option selected value="id">id</option>
+        <option value="title">title</option>
+        <option value="text">text</option>
+        <option value="author">author</option>
+    </select>
+<select id="select1" name="sortOrder">
+    <option value="asc">asc</option>
+    <option selected value="desc">desc</option>
+</select></p>
+    <p><input type="button" id="button1" value="Отправить" onclick="ActionEvent()"></p>
+
+<button id="button0" >Добавить</button>
 </body>
+
+<script>getArticles();</script>
 </html>

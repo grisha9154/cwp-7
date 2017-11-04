@@ -1,1 +1,36 @@
-qweqwe
+.title{
+    position:relative;
+    background: #9c9c9c;
+    border-radius: 10px;
+    font-size: large;
+    width: 80%;
+    text-align: center;
+    align-content: center;
+}
+.body{
+    position: relative;
+    background: #fddde6;
+    border-radius: 10px;
+    width: 80%;
+    text-align: center;
+}
+.comment{
+    position: relative;
+    margin-left: 3%;
+    width: 77%;
+}
+.author{
+    position: absolute;
+    text-align: left;
+    width: 10%;
+}
+.time{
+    position: relative;
+    width: 50%;
+    left: 50%;
+    text-align: right;
+}
+.foot{
+    background: #ff3867;
+    border-radius: 10px;
+}
